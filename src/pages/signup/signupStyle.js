@@ -79,5 +79,12 @@ export const LabelForm = styled.label`
   margin-top: 30px;
 `;
 
+export const LoadingSection = styled.section`
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
 
 

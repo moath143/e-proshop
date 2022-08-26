@@ -43,6 +43,8 @@ export const typography = (size, bold) => {
 
 export const Section = styled.section`
   padding: ${(props) => props.padding};
+  background: ${(props) => props.bg};
+  height: ${(props) => props.height};
 `;
 
 export const Row = styled.div`
@@ -50,5 +52,5 @@ export const Row = styled.div`
 `;
 
 export const Col = styled.div`
-    width: ${props => props.width}
-`
+  width: ${(props) => props.width};
+`;
