@@ -13,10 +13,8 @@ import { useSelector } from "react-redux";
  */
 
 const Navbar = () => {
-    const userStorage = JSON.parse(localStorage.getItem("user"));
-    const {isAuth} = useSelector(state => state.authStore)
-
-
+  const userStorage = JSON.parse(localStorage.getItem("user"));
+  const { isAuth } = useSelector((state) => state.authStore);
 
   return (
     <Section bg={"#000"} padding={"15px 0"}>
@@ -46,7 +44,7 @@ const Navbar = () => {
                     <i className="fa-solid fa-circle-user"></i>
                     {userStorage?.user?.firstName}
                   </Link>
-                ) : isAuth ? null : (
+                ) : (
                   <Link to="/login">
                     <i className="fa-solid fa-arrow-right-to-bracket"></i>
                     login/signup

@@ -26,7 +26,7 @@ const Profile = () => {
   };
 
   const handleLogout = () => {
-    window.location.reload(true);
+    // window.location.reload(true);
     localStorage.removeItem("user");
   };
 
@@ -112,7 +112,10 @@ const Profile = () => {
                   "http://www.gravatar.com/avatar/a16a38cdfe8b2cbd38e8a56ab93238d3"
                 }
               />
-              <Button onClick={() => setIsOpen(true)} text={"upload new photo"} />
+              <Button
+                onClick={() => setIsOpen(true)}
+                text={"upload new photo"}
+              />
               <ModalComp modalIsOpen={modalIsOpen} closeModal={closeModal} />
               {/* <Modal isOpen={modalIsOpen}>
                 <h1>modal</h1>
