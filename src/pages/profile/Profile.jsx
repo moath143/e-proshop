@@ -114,9 +114,6 @@ const Profile = () => {
               />
               <Button onClick={() => setIsOpen(true)} text={"upload new photo"} />
               <ModalComp modalIsOpen={modalIsOpen} closeModal={closeModal} />
-              {/* <Modal isOpen={modalIsOpen}>
-                <h1>modal</h1>
-              </Modal> */}
             </div>
           </Information>
         </ProfileSection>
