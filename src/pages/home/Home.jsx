@@ -1,14 +1,17 @@
 import React from "react";
-import toast, { Toaster } from "react-hot-toast";
-import { useSelector } from "react-redux";
+import SwiperComp from "../../components/swiper";
+import { Container } from "../../style/globalStyle";
+import { SectionHome } from "./homeStyle";
 
 const Home = () => {
-
-
   return (
-    <div>
-      home
-    </div>
+    <>
+      <SectionHome>
+        <Container>
+          <SwiperComp />
+        </Container>
+      </SectionHome>
+    </>
   );
 };
 

@@ -1,25 +1,24 @@
 import React, { useState, useEffect } from "react";
 import { Container, Section, Ulist } from "../../style/globalStyle";
 import { ProfileSection, Dashboard, Information } from "./profileStyle";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Avatar from "react-avatar";
 import Button from "../../components/button";
 import { useDispatch, useSelector } from "react-redux";
 import { userProfileThunk } from "../../store/reducers/userSlice";
 import ModalComp from "../../components/modal/ModalComp";
-import Modal from "react-modal";
+
 
 const Profile = () => {
-  const navigate = useNavigate();
+
   const dispatch = useDispatch();
   const userStorage = JSON.parse(localStorage.getItem("user"));
-  const { isAuth, user } = useSelector((state) => state.authStore);
-  const profileData = useSelector((state) => state.userStore);
+  console.log("🚀 ~ file: Profile.jsx ~ line 16 ~ Profile ~ userStorage", userStorage.user)
+  const { isAuth } = useSelector((state) => state.authStore);
+
   const [modalIsOpen, setIsOpen] = useState(false);
 
-  const openModal = () => {
-    setIsOpen(true);
-  };
+
 
   const closeModal = () => {
     setIsOpen(false);
@@ -32,7 +31,7 @@ const Profile = () => {
 
   useEffect(() => {
     dispatch(userProfileThunk());
-  }, []);
+  }, [dispatch]);
   return (
     <Section height={"calc(100vh - 82px)"} padding={"30px 0"}>
       <Container>
@@ -44,12 +43,12 @@ const Profile = () => {
                 size="150"
                 round={true}
                 src={
-                  profileData.profile.profileImage ||
+                  userStorage.user.profileImage ||
                   "http://www.gravatar.com/avatar/a16a38cdfe8b2cbd38e8a56ab93238d3"
                 }
               />
               <p>
-                {profileData.profile.firstName} {profileData.profile.lastName}
+                {userStorage.user.firstName} {userStorage.user.lastName}
               </p>
             </div>
             <Ulist>
@@ -85,19 +84,19 @@ const Profile = () => {
               <Ulist>
                 <li>
                   <span>first name</span>
-                  <p>{profileData.profile.firstName}</p>
+                  <p>{userStorage.user.firstName}</p>
                 </li>
                 <li>
                   <span>last name</span>
-                  <p> {profileData.profile.lastName} </p>
+                  <p> {userStorage.user.lastName} </p>
                 </li>
                 <li>
                   <span>email</span>
-                  <p> {profileData.profile.email} </p>
+                  <p> {userStorage.user.email} </p>
                 </li>
                 <li>
                   <span>birthday</span>
-                  <p> {profileData.profile.dateOfBirth.slice(0, 10) || "-"} </p>
+                  <p> {userStorage.user.dateOfBirth.slice(0, 10) || "-"} </p>
                 </li>
               </Ulist>
               <Button text={"change password"} />
@@ -108,7 +107,7 @@ const Profile = () => {
                 size="150"
                 round={true}
                 src={
-                  profileData.profile.profileImage ||
+                  userStorage.user.profileImage ||
                   "http://www.gravatar.com/avatar/a16a38cdfe8b2cbd38e8a56ab93238d3"
                 }
               />
